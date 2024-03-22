@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    private bool isPaused = false;
+    public bool isPaused = false;
     
     public static GameManager Instance
     {
@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         {
             // Set Pause Screen Active
             GameUI.Instance.SetIsScreenActive("Pause Screen", true);
+            Time.timeScale = 0f;
         }
         // Unpause logic
         else if (!isPaused)
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
             // Set all Screen Inactive (Settings, Options, Pause, etc.)
             GameUI.Instance.SetIsScreenActive("Pause Screen", false);
             GameUI.Instance.SetAllScreensActive(false);
+            Time.timeScale = 1f;
         }
     }
 

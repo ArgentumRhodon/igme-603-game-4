@@ -5,17 +5,19 @@ public class CatchFish : MonoBehaviour
 {
     [SerializeField] private GameObject fishPrompt;
     [SerializeField] private GameObject fishingLine;
-    [SerializeField] private GameObject controlCanvas;
-
-    private void Start()
-    {
-        controlCanvas.SetActive(true);
-    }
 
     void Update()
     {
-        castLine();
-        catchFish();
+        if (!GameManager.Instance.isPaused)
+        {
+            castLine();
+            catchFish();
+        }
+        else
+        {
+            // Does nothing but stops you from being able to cast and catch while paused
+            // Debug.Log("Game is paused");
+        }
     }
 
     void castLine()
