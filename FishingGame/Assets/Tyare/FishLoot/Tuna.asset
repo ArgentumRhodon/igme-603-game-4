@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da092be8e1ff254abf953ceedc33820, type: 3}
   m_Name: Tuna
   m_EditorClassIdentifier: 
-  fishLootSprite: {fileID: 21300000, guid: 4134b7c3ef8762849a2f1d417f103f1a, type: 3}
+  fishLootSprite: {fileID: 21300000, guid: bba1751575c4c9647ae670e6629a3dba, type: 3}
   fishName: Tuna
   dropChance: 80
+  sellPrice: 0

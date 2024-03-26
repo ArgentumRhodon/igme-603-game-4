@@ -9,6 +9,18 @@ public class FishLootBag : MonoBehaviour
 
     [SerializeField] private float dropForce = 300f;
 
+    //Fish Inventory --Rin
+    Inventory playerInventory;
+
+    private void Awake()
+    {
+        playerInventory = FindObjectOfType<Inventory>();
+        if(playerInventory == null)
+        {
+            Debug.Log("NO");
+        }
+    }
+
     FishLoot GetDroppedItem()
     {
         int randNum = Random.Range(1, 101);
@@ -37,10 +49,14 @@ public class FishLootBag : MonoBehaviour
             GameObject fishLootGameObject = Instantiate(droppedItemPrefab, spawnPos, Quaternion.identity);
             fishLootGameObject.GetComponent<SpriteRenderer>().sprite = droppedItem.fishLootSprite;
 
+            //Add fish to the inventory -- Rin
+            playerInventory.AddFishLoot(droppedItem.fishLootSprite, droppedItem.sellPrice, droppedItem.fishName);
+
             Vector3 dropDirection = new Vector3(Random.Range(-.5f, .6f), 1f, 0f);
             fishLootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce, ForceMode2D.Impulse);
 
             Destroy(fishLootGameObject, 2);
+
         }
     }
 }

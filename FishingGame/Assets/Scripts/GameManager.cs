@@ -48,6 +48,22 @@ public class GameManager : MonoBehaviour
         {
             Pause();
         }
+
+        // Open Inventory -- Rin
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if(GameUI.Instance.IsScreenActive("Inventory UI"))
+            {
+                CloseInventory();
+            }
+            else
+            {
+                OpenInventory();
+            }
+            
+        }
+
+
     }
 
     public void Pause()
@@ -81,5 +97,19 @@ public class GameManager : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+
+    //Open Inventory -- Rin
+    public void OpenInventory()
+    {
+        GameUI.Instance.SetIsScreenActive("Inventory UI", true);
+    }
+
+
+    //Close Inventory -- Rin
+    public void CloseInventory()
+    {
+        GameUI.Instance.SetIsScreenActive("Inventory UI", false);
     }
 }

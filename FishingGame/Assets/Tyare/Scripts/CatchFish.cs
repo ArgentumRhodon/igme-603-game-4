@@ -6,6 +6,8 @@ public class CatchFish : MonoBehaviour
     [SerializeField] private GameObject fishPrompt;
     [SerializeField] private GameObject fishingLine;
 
+
+
     void Update()
     {
         if (!GameManager.Instance.isPaused)
