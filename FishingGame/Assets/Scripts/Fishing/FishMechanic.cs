@@ -88,7 +88,11 @@ public class FishMechanic : MonoBehaviour
         {
             fishingLine.SetActive(false);
             fishPrompt.SetActive(false);
-            fishCatchingPrompt.SetActive(false);
+
+
+            StartCoroutine(sliderWait());
+
+
             isTugofWar = false;
             isCanCast = true;
 
@@ -136,5 +140,11 @@ public class FishMechanic : MonoBehaviour
     {
         yield return new WaitForSeconds(randNum);
         fishPrompt.SetActive(true);
+    }
+
+    IEnumerator sliderWait()
+    {
+        yield return new WaitForSeconds(2);
+        fishCatchingPrompt.SetActive(false);
     }
 }
