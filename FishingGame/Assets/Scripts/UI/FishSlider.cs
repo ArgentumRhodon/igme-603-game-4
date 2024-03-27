@@ -23,6 +23,12 @@ public class FishSlider : MonoBehaviour
         MoveSliderImage(newValue);
     }
 
+    public void ResetSlider()
+    {
+        fishSlider.value = 0;
+        MoveSliderImage(fishSlider.value);
+    }
+
     private void MoveSliderImage(float val)
     {
         float handlePositionX = val * fishSlider.GetComponent<RectTransform>().rect.width;

@@ -5,7 +5,7 @@ using TMPro;
 
 public class FishMechanic : MonoBehaviour
 {
-    FishSlider fishSlider;
+    [SerializeField] FishSlider fishSlider;
     [SerializeField] TextMeshProUGUI fishText;
     bool isFishTugging = false;
     float catchProgress = 0f;
@@ -18,8 +18,6 @@ public class FishMechanic : MonoBehaviour
 
     void Start()
     {
-        fishSlider = gameObject.GetComponent<FishSlider>();
-
         switchInterval = Random.Range(minSwitchInterval, maxSwitchInterval);
         fishText.text = "Wind in the fish!";
     }
