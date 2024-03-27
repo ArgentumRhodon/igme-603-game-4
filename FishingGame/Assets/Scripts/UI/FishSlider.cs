@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class FishSlider : MonoBehaviour
 {
-    private Slider fishSlider;
+    [SerializeField] private Slider fishSlider;
     [SerializeField] private Image handleImage;
 
     void Start()
     {
         // Initalize the slider
-        fishSlider = gameObject.GetComponent<Slider>();
+        //fishSlider = gameObject.GetComponent<Slider>();
         fishSlider.interactable = false;
         fishSlider.value = 0;
     }

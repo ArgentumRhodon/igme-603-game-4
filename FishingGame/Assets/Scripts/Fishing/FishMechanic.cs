@@ -11,6 +11,7 @@ public class FishMechanic : MonoBehaviour
     [SerializeField] FishSlider fishSlider;
     [SerializeField] TextMeshProUGUI fishText;
     bool isFishTugging = false;
+    bool isTugofWar = false;
     float catchProgress = 0f;
 
     // Random switch variables
@@ -31,6 +32,11 @@ public class FishMechanic : MonoBehaviour
         {
             castLine();
             catchFish();
+
+            if (isTugofWar)
+            {
+                TugofWar();
+            }
         }
         else
         {
@@ -81,6 +87,7 @@ public class FishMechanic : MonoBehaviour
             fishingLine.SetActive(false);
             fishPrompt.SetActive(false);
             fishCatchingPrompt.SetActive(false);
+            isTugofWar = false;
 
             catchProgress = 0.0f;
             fishSlider.ResetSlider();
@@ -113,7 +120,11 @@ public class FishMechanic : MonoBehaviour
     {
         if (fishPrompt.activeSelf == true)
         {
-            TugofWar();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                fishPrompt.SetActive(false);
+                isTugofWar = true;
+            }
         }
     }
 
