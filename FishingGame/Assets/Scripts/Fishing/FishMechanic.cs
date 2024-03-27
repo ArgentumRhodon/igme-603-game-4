@@ -40,7 +40,6 @@ public class FishMechanic : MonoBehaviour
 
             if (isTugofWar)
             {
-                isCanCast = true;
                 TugofWar();
             }
         }
