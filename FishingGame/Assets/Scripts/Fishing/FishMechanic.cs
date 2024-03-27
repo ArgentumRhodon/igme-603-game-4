@@ -71,6 +71,7 @@ public class FishMechanic : MonoBehaviour
             {
                 catchProgress += 0.05f;
                 fishSlider.UpdateSliderValue(catchProgress);
+                fishSlider.SetFillColor(FillColor.Normal);
             }
         }
         // Player should wait
@@ -80,6 +81,7 @@ public class FishMechanic : MonoBehaviour
             {
                 catchProgress -= 0.05f;
                 fishSlider.UpdateSliderValue(catchProgress);
+                fishSlider.SetFillColor(FillColor.Bad);
             }
         }
 
