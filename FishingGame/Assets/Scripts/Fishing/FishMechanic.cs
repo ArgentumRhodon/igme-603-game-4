@@ -12,6 +12,7 @@ public class FishMechanic : MonoBehaviour
     [SerializeField] TextMeshProUGUI fishText;
     bool isFishTugging = false;
     bool isTugofWar = false;
+    bool isCanCast = true;
     float catchProgress = 0f;
 
     // Random switch variables
@@ -30,18 +31,18 @@ public class FishMechanic : MonoBehaviour
     {
         if (!GameManager.Instance.isPaused)
         {
-            castLine();
+            if (isCanCast)
+            {
+                castLine();
+            }
+
             catchFish();
 
             if (isTugofWar)
             {
+                isCanCast = true;
                 TugofWar();
             }
-        }
-        else
-        {
-            // Does nothing but stops you from being able to cast and catch while paused
-            // Debug.Log("Game is paused");
         }
     }
 
@@ -88,6 +89,7 @@ public class FishMechanic : MonoBehaviour
             fishPrompt.SetActive(false);
             fishCatchingPrompt.SetActive(false);
             isTugofWar = false;
+            isCanCast = true;
 
             catchProgress = 0.0f;
             fishSlider.ResetSlider();
@@ -111,6 +113,7 @@ public class FishMechanic : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
+            isCanCast = false;
             fishingLine.SetActive(true);
             StartCoroutine(promptCoroutine(Random.Range(2f, 9f)));
         }
