@@ -5,6 +5,9 @@ using TMPro;
 
 public class FishMechanic : MonoBehaviour
 {
+    [SerializeField] GameObject fishPrompt;
+    [SerializeField] GameObject fishCatchingPrompt;
+    [SerializeField] GameObject fishingLine;
     [SerializeField] FishSlider fishSlider;
     [SerializeField] TextMeshProUGUI fishText;
     bool isFishTugging = false;
@@ -24,6 +27,22 @@ public class FishMechanic : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.isPaused)
+        {
+            castLine();
+            catchFish();
+        }
+        else
+        {
+            // Does nothing but stops you from being able to cast and catch while paused
+            // Debug.Log("Game is paused");
+        }
+    }
+
+    private void TugofWar()
+    {
+        fishCatchingPrompt.SetActive(true);
+
         // Increment switch timer
         switchTimer += Time.deltaTime;
 
@@ -41,7 +60,7 @@ public class FishMechanic : MonoBehaviour
         // Player winds the fish in
         if (!isFishTugging)
         {
-            if (Input.GetKeyDown(KeyCode.W) && catchProgress < 1)
+            if (Input.GetKeyDown(KeyCode.Space) && catchProgress < 1)
             {
                 catchProgress += 0.05f;
                 fishSlider.UpdateSliderValue(catchProgress);
@@ -50,11 +69,22 @@ public class FishMechanic : MonoBehaviour
         // Player should wait
         else
         {
-            if (Input.GetKeyDown(KeyCode.W) && catchProgress > 0)
+            if (Input.GetKeyDown(KeyCode.Space) && catchProgress > 0)
             {
                 catchProgress -= 0.05f;
                 fishSlider.UpdateSliderValue(catchProgress);
             }
+        }
+
+        if (catchProgress >= 1)
+        {
+            fishingLine.SetActive(false);
+            fishPrompt.SetActive(false);
+            fishCatchingPrompt.SetActive(false);
+
+            catchProgress = 0.0f;
+            fishSlider.ResetSlider();
+            GetComponent<FishLootBag>().InstantiateLoot(transform.position);
         }
     }
 
@@ -68,5 +98,28 @@ public class FishMechanic : MonoBehaviour
         {
             fishText.text = "Wind in the fish!";
         }
+    }
+
+    void castLine()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            fishingLine.SetActive(true);
+            StartCoroutine(promptCoroutine(Random.Range(2f, 9f)));
+        }
+    }
+
+    void catchFish()
+    {
+        if (fishPrompt.activeSelf == true)
+        {
+            TugofWar();
+        }
+    }
+
+    IEnumerator promptCoroutine(float randNum)
+    {
+        yield return new WaitForSeconds(randNum);
+        fishPrompt.SetActive(true);
     }
 }
