@@ -86,18 +86,16 @@ public class FishMechanic : MonoBehaviour
 
         if (catchProgress >= 1)
         {
+            fishSlider.SetFillColor(FillColor.Success);
+            fishText.text = "Success!";
+
             fishingLine.SetActive(false);
             fishPrompt.SetActive(false);
 
-
             StartCoroutine(sliderWait());
 
-
             isTugofWar = false;
-            isCanCast = true;
 
-            catchProgress = 0.0f;
-            fishSlider.ResetSlider();
             GetComponent<FishLootBag>().InstantiateLoot(transform.position);
         }
     }
@@ -144,7 +142,11 @@ public class FishMechanic : MonoBehaviour
 
     IEnumerator sliderWait()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.6f);
         fishCatchingPrompt.SetActive(false);
+        catchProgress = 0.0f;
+        fishSlider.ResetSlider();
+        fishText.text = "Wind in the fish!";
+        isCanCast = true;
     }
 }
