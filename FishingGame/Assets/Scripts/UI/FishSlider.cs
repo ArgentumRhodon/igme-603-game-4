@@ -12,6 +12,7 @@ public class FishSlider : MonoBehaviour
         //fishSlider = gameObject.GetComponent<Slider>();
         fishSlider.interactable = false;
         fishSlider.value = 0;
+        MoveSliderImage(fishSlider.value);
     }
 
     public void UpdateSliderValue(float newValue)
