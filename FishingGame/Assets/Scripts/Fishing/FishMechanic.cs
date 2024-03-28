@@ -7,6 +7,7 @@ public class FishMechanic : MonoBehaviour
 {
     [SerializeField] GameObject catchPrompt;
     [SerializeField] GameObject frenzyPrompt;
+    [SerializeField] GameObject escapePrompt;
     [SerializeField] GameObject fishCatchingPrompt;
     [SerializeField] GameObject fishingLine;
     [SerializeField] FishSlider fishSlider;
@@ -18,6 +19,7 @@ public class FishMechanic : MonoBehaviour
     bool isCanCast = true;
     
     float catchProgress = 0f;
+    float escapeTimer = 0f;
 
     // Random switch variables
     float minSwitchInterval = 0.5f; // Minimum interval between switches
@@ -82,6 +84,7 @@ public class FishMechanic : MonoBehaviour
                 fishSlider.SetFillColor(FillColor.Normal);
             }
         }
+
         // Player should wait
         else
         {
@@ -93,6 +96,7 @@ public class FishMechanic : MonoBehaviour
             }
         }
 
+        // Fish is caught 
         if (catchProgress >= 1)
         {
             fishSlider.SetFillColor(FillColor.Success);
@@ -111,6 +115,7 @@ public class FishMechanic : MonoBehaviour
 
     void frenzyMode()
     {
+        // Activates frenzy mode while prompt is active
         frenzyPrompt.SetActive(true);
 
         if (Input.GetKeyDown(KeyCode.Space) && frenzyPrompt.activeSelf == true)
@@ -133,6 +138,7 @@ public class FishMechanic : MonoBehaviour
 
     void castLine()
     {
+        // Casts line and wait for a bite
         if (Input.GetKeyDown(KeyCode.W))
         {
             isCanCast = false;
@@ -145,12 +151,13 @@ public class FishMechanic : MonoBehaviour
     {
         float chance = 0;
 
-        if (catchPrompt.activeSelf == true)
+        if (catchPrompt.activeSelf == true) // checks to see if pormopt is active
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            escapeTimer += .05f; // increments the timer before the fish escapes
+            if (Input.GetKeyDown(KeyCode.Space) && escapeTimer <= 50)
             {
                 catchPrompt.SetActive(false);
-                chance = Random.Range(1, 101);
+                chance = Random.Range(1, 101); // calcuates chance out of 100%
 
                 if (chance <= 5)
                 {
@@ -162,6 +169,10 @@ public class FishMechanic : MonoBehaviour
                     isTugofWar = true;
                 }
             }
+            if (escapeTimer > 50)
+            {
+                StartCoroutine(fishEscape());
+            }
         }
     }
 
@@ -169,6 +180,17 @@ public class FishMechanic : MonoBehaviour
     {
         yield return new WaitForSeconds(randNum);
         catchPrompt.SetActive(true);
+    }
+
+    IEnumerator fishEscape()
+    {
+        catchPrompt.SetActive(false);
+        escapePrompt.SetActive(true);
+        yield return new WaitForSeconds(1.6f);
+        fishingLine.SetActive(false);
+        escapePrompt.SetActive(false);
+        isCanCast = true;
+        escapeTimer = 0;
     }
 
     IEnumerator frenzyStart(float timeLength)
