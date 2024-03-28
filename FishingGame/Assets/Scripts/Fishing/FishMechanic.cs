@@ -5,14 +5,18 @@ using TMPro;
 
 public class FishMechanic : MonoBehaviour
 {
-    [SerializeField] GameObject fishPrompt;
+    [SerializeField] GameObject catchPrompt;
+    [SerializeField] GameObject frenzyPrompt;
     [SerializeField] GameObject fishCatchingPrompt;
     [SerializeField] GameObject fishingLine;
     [SerializeField] FishSlider fishSlider;
     [SerializeField] TextMeshProUGUI fishText;
+
     bool isFishTugging = false;
+    bool isFrenzyMode = false;
     bool isTugofWar = false;
     bool isCanCast = true;
+    
     float catchProgress = 0f;
 
     // Random switch variables
@@ -41,6 +45,11 @@ public class FishMechanic : MonoBehaviour
             if (isTugofWar)
             {
                 TugofWar();
+            }
+
+            if (isFrenzyMode)
+            {
+                frenzyMode();
             }
         }
     }
@@ -90,12 +99,22 @@ public class FishMechanic : MonoBehaviour
             fishText.text = "Success!";
 
             fishingLine.SetActive(false);
-            fishPrompt.SetActive(false);
+            catchPrompt.SetActive(false);
 
             StartCoroutine(sliderWait());
 
             isTugofWar = false;
 
+            GetComponent<FishLootBag>().InstantiateLoot(transform.position);
+        }
+    }
+
+    void frenzyMode()
+    {
+        frenzyPrompt.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.Space) && frenzyPrompt.activeSelf == true)
+        {
             GetComponent<FishLootBag>().InstantiateLoot(transform.position);
         }
     }
@@ -118,26 +137,48 @@ public class FishMechanic : MonoBehaviour
         {
             isCanCast = false;
             fishingLine.SetActive(true);
-            StartCoroutine(promptCoroutine(Random.Range(2f, 9f)));
+            StartCoroutine(fishBite(Random.Range(2f, 9f)));
         }
     }
 
     void catchFish()
     {
-        if (fishPrompt.activeSelf == true)
+        float chance = 0;
+
+        if (catchPrompt.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                fishPrompt.SetActive(false);
-                isTugofWar = true;
+                catchPrompt.SetActive(false);
+                chance = Random.Range(1, 101);
+
+                if (chance <= 5)
+                {
+                    isFrenzyMode = true;
+                    StartCoroutine(frenzyStart(3));
+                }
+                else
+                {
+                    isTugofWar = true;
+                }
             }
         }
     }
 
-    IEnumerator promptCoroutine(float randNum)
+    IEnumerator fishBite(float randNum)
     {
         yield return new WaitForSeconds(randNum);
-        fishPrompt.SetActive(true);
+        catchPrompt.SetActive(true);
+    }
+
+    IEnumerator frenzyStart(float timeLength)
+    {
+        yield return new WaitForSeconds(timeLength);
+
+        fishingLine.SetActive(false);
+        frenzyPrompt.SetActive(false);
+        isFrenzyMode = false;
+        isCanCast = true;
     }
 
     IEnumerator sliderWait()
