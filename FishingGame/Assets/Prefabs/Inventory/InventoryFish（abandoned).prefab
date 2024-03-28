@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3480055171041428340}
   - component: {fileID: 4843118454686255314}
   m_Layer: 5
-  m_Name: InventoryFish
+  m_Name: "InventoryFish\uFF08abandoned)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

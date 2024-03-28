@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class FishLoot : ScriptableObject
 {
+    public int fishId;
     public Sprite fishLootSprite;
     public string fishName;
     public int dropChance;

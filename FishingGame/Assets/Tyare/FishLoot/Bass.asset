@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0da092be8e1ff254abf953ceedc33820, type: 3}
   m_Name: Bass
   m_EditorClassIdentifier: 
+  fishId: 1
   fishLootSprite: {fileID: 21300000, guid: 648347fb28d29cc4ab822fcd4f343659, type: 3}
   fishName: Bass
   dropChance: 80
-  sellPrice: 0
+  sellPrice: 250

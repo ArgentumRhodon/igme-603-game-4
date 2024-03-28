@@ -50,7 +50,8 @@ public class FishLootBag : MonoBehaviour
             fishLootGameObject.GetComponent<SpriteRenderer>().sprite = droppedItem.fishLootSprite;
 
             //Add fish to the inventory -- Rin
-            playerInventory.AddFishLoot(droppedItem.fishLootSprite, droppedItem.sellPrice, droppedItem.fishName);
+            playerInventory.AddFishLoot(droppedItem.fishLootSprite, droppedItem.sellPrice, droppedItem.fishName,droppedItem.fishId);
+
 
             Vector3 dropDirection = new Vector3(Random.Range(-.5f, .6f), 1f, 0f);
             fishLootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce, ForceMode2D.Impulse);

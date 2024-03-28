@@ -7,12 +7,33 @@ using UnityEngine.UI;
 //Created by Rin
 public class Inventory : MonoBehaviour
 {
-    public GameObject fishInstance;
-    public GameObject fishContentList;
+    //public GameObject fishInstance;
+    //public GameObject fishContentList;
 
-    public void AddFishLoot(Sprite fishSprite,int fishPrice, string fishName)
+    //Store Fish Item in the inventory
+    public List<GameObject> collectedFishList;
+
+    //Store all fish amount
+    int[] fishAmountList = new int[5];
+    //Store all fish price
+    int[] fishPriceList = new int[5];
+
+    public void AddFishLoot(Sprite fishSprite,int fishPrice, string fishName,int fishId)
     {
-        //Generate fish in the inventory
+        //Set attributes in the inventory
+        GameObject currentFishObject = collectedFishList[fishId - 1];
+        currentFishObject.transform.Find("FishImage").GetComponent<Image>().sprite = fishSprite;
+        currentFishObject.transform.Find("FishName").GetComponent<TextMeshProUGUI>().text = fishName;
+        currentFishObject.transform.Find("SellPrice").GetComponent<TextMeshProUGUI>().text = "Sell Price: " + fishPrice;
+        fishAmountList[fishId - 1] += 1;
+        currentFishObject.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = "Amount: " + fishAmountList[fishId - 1];
+        fishPriceList[fishId - 1] = fishPrice;
+
+        currentFishObject.transform.Find("SellButton").GetComponent<Button>().interactable = true;
+
+
+
+/*        //Generate fish in the inventory
         GameObject fishObject = Instantiate(fishInstance, transform.position, Quaternion.identity);
         fishObject.transform.SetParent(fishContentList.transform);
         //Set sprite and name
@@ -23,6 +44,19 @@ public class Inventory : MonoBehaviour
         //Set RectTransform
         RectTransform rectTransform = fishObject.GetComponent<RectTransform>();
         rectTransform.localPosition = Vector3.zero;
-        rectTransform.localScale = Vector3.one;
+        rectTransform.localScale = Vector3.one;*/
+    }
+
+
+    public void SellFish(int fishId)
+    {
+        //Reset Amount 
+        GameObject currentFishObject = collectedFishList[fishId - 1];
+        fishAmountList[fishId - 1] = 0;
+        currentFishObject.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = "Amount: 0";
+
+        currentFishObject.transform.Find("SellButton").GetComponent<Button>().interactable = false;
+
+        //Player add money
     }
 }
