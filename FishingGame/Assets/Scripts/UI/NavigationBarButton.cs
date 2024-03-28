@@ -21,9 +21,6 @@ public class NavigationBarButton : MonoBehaviour
         // Set listener for button
         Button button = gameObject.GetComponent<Button>();
         button.onClick.AddListener(() => OnButtonClick(controller));
-
-        // Set underline
-        UpdateUnderline(controller);
     }
 
     // Detrmmines what section to show for this button on click

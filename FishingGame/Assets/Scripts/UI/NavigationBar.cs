@@ -17,6 +17,7 @@ public class NavigationBar : MonoBehaviour
 
     private GameObject activeSection;
 
+    // MAKE SURE THAT THE FIRST SECTION HAS ITS UNDERLINE ACTIVE
     void Start()
     {
         // Default to upgrades
