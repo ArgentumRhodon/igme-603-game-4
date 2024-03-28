@@ -3251,6 +3251,7 @@ GameObject:
   - component: {fileID: 3302176576545107961}
   - component: {fileID: 2143478036367321723}
   - component: {fileID: 6717793572707701746}
+  - component: {fileID: 8341111868642554757}
   m_Layer: 0
   m_Name: Shop Button
   m_TagString: Untagged
@@ -3331,7 +3332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3362,6 +3363,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8341111868642554757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4673974638671638049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e801d1db3c62d458c13b3ffc04a3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: {fileID: 5298783931342538868}
 --- !u!1 &5054642435260353638
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,7 +4302,7 @@ GameObject:
   - component: {fileID: 8490511386484774235}
   - component: {fileID: 6554255210913628045}
   - component: {fileID: 8679704134577621604}
-  - component: {fileID: 6759596499758309629}
+  - component: {fileID: 1445315390742381026}
   m_Layer: 0
   m_Name: Inventory Button
   m_TagString: Untagged
@@ -4369,7 +4383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4400,27 +4414,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!95 &6759596499758309629
-Animator:
-  serializedVersion: 5
+--- !u!114 &1445315390742381026
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5939281014459373308}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 66e290c8ee5073e4289db092d21a8a89, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e801d1db3c62d458c13b3ffc04a3cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: {fileID: 4221654228313297823}
 --- !u!1 &6132713065608925999
 GameObject:
   m_ObjectHideFlags: 0
@@ -7132,6 +7138,7 @@ MonoBehaviour:
   - {fileID: 1808217197889761887}
   - {fileID: 7294063662210754454}
   - {fileID: 4221654228313297823}
+  - {fileID: 5298783931342538868}
 --- !u!1 &8406668313104064111
 GameObject:
   m_ObjectHideFlags: 0
@@ -9528,6 +9535,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8af289d23c9a606498e33e478fc5bd0b, type: 3}
+--- !u!1 &5298783931342538868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1296173342381416941, guid: 8af289d23c9a606498e33e478fc5bd0b, type: 3}
+  m_PrefabInstance: {fileID: 6374248378502605209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8304081949807296327 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3119841882423613150, guid: 8af289d23c9a606498e33e478fc5bd0b, type: 3}
