@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public bool isPaused = false;
+    [SerializeField] GameObject controlsCanvas;
+    [HideInInspector] public bool isPaused = false;
     
     public static GameManager Instance
     {
@@ -48,6 +49,23 @@ public class GameManager : MonoBehaviour
         {
             Pause();
         }
+
+        if (!isPaused && !GameUI.Instance.IsScreenActive("Start Screen"))
+        {
+            // Open Inventory -- Rin
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                if (GameUI.Instance.IsScreenActive("Inventory UI"))
+                {
+                    CloseInventory();
+                }
+                else
+                {
+                    OpenInventory();
+                }
+
+            }
+        }
     }
 
     public void Pause()
@@ -62,6 +80,7 @@ public class GameManager : MonoBehaviour
         {
             // Set Pause Screen Active
             GameUI.Instance.SetIsScreenActive("Pause Screen", true);
+            controlsCanvas.SetActive(false);
             Time.timeScale = 0f;
         }
         // Unpause logic
@@ -70,6 +89,7 @@ public class GameManager : MonoBehaviour
             // Set all Screen Inactive (Settings, Options, Pause, etc.)
             GameUI.Instance.SetIsScreenActive("Pause Screen", false);
             GameUI.Instance.SetAllScreensActive(false);
+            controlsCanvas.SetActive(true);
             Time.timeScale = 1f;
         }
     }
@@ -81,5 +101,19 @@ public class GameManager : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+
+    //Open Inventory -- Rin
+    public void OpenInventory()
+    {
+        GameUI.Instance.SetIsScreenActive("Inventory UI", true);
+    }
+
+
+    //Close Inventory -- Rin
+    public void CloseInventory()
+    {
+        GameUI.Instance.SetIsScreenActive("Inventory UI", false);
     }
 }
