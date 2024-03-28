@@ -58,5 +58,6 @@ public class Inventory : MonoBehaviour
         currentFishObject.transform.Find("SellButton").GetComponent<Button>().interactable = false;
 
         //Player add money
+        PlayerCurrency.playerCash += fishAmountList[fishId] * fishPriceList[fishId];
     }
 }
