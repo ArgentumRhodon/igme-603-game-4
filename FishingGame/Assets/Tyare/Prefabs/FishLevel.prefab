@@ -300,7 +300,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7973499777108091060
 Transform:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ Transform:
   - {fileID: 6473048104259051677}
   - {fileID: 8745594681313666000}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1863883841393784863
 PrefabInstance:
@@ -377,23 +377,45 @@ PrefabInstance:
       value: Water
       objectReference: {fileID: 0}
     - target: {fileID: 8219875632896007729, guid: b11d07f7a2c294447a2b8cc77edf267b, type: 3}
-      propertyPath: fishPrompt
-      value: 
-      objectReference: {fileID: 7180666264011159138}
-    - target: {fileID: 8219875632896007729, guid: b11d07f7a2c294447a2b8cc77edf267b, type: 3}
       propertyPath: fishingLine
       value: 
       objectReference: {fileID: 1977451862440234737}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8219875632896007729, guid: b11d07f7a2c294447a2b8cc77edf267b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7835911473013753897, guid: b11d07f7a2c294447a2b8cc77edf267b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1562269378659571715}
   m_SourcePrefab: {fileID: 100100000, guid: b11d07f7a2c294447a2b8cc77edf267b, type: 3}
 --- !u!4 &6473048104259051677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4614283678950725762, guid: b11d07f7a2c294447a2b8cc77edf267b, type: 3}
   m_PrefabInstance: {fileID: 1863883841393784863}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8458718383049371702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7835911473013753897, guid: b11d07f7a2c294447a2b8cc77edf267b, type: 3}
+  m_PrefabInstance: {fileID: 1863883841393784863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1562269378659571715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458718383049371702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b7c75d91477444990b920f28779878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrompt: {fileID: 0}
+  fishCatchingPrompt: {fileID: 0}
+  fishingLine: {fileID: 1977451862440234737}
+  fishSlider: {fileID: 0}
+  fishText: {fileID: 0}
 --- !u!1001 &4194588708642554996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -463,7 +485,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6453928578253140502, guid: 9955c3e7050f2ff4ab9316563d4806b2, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9955c3e7050f2ff4ab9316563d4806b2, type: 3}
@@ -475,10 +498,5 @@ GameObject:
 --- !u!4 &2619087025282317025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2192956086037282453, guid: 9955c3e7050f2ff4ab9316563d4806b2, type: 3}
-  m_PrefabInstance: {fileID: 4194588708642554996}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7180666264011159138 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6453928578253140502, guid: 9955c3e7050f2ff4ab9316563d4806b2, type: 3}
   m_PrefabInstance: {fileID: 4194588708642554996}
   m_PrefabAsset: {fileID: 0}
