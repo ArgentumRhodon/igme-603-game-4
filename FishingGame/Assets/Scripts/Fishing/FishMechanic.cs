@@ -159,7 +159,7 @@ public class FishMechanic : MonoBehaviour
                 catchPrompt.SetActive(false);
                 chance = Random.Range(1, 101); // calcuates chance out of 100%
 
-                if (chance <= 5)
+                if (chance <= 99)
                 {
                     isFrenzyMode = true;
                     StartCoroutine(frenzyStart(3));

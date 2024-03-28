@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0da092be8e1ff254abf953ceedc33820, type: 3}
-  m_Name: Goldfish
+  m_Name: Swordy
   m_EditorClassIdentifier: 
-  fishId: 3
-  fishLootSprite: {fileID: 21300000, guid: 38d7cb9dccfc4b146b2455988d4b186e, type: 3}
-  fishName: Goldfish
-  dropChance: 100
-  sellPrice: 100
+  fishId: 7
+  fishLootSprite: {fileID: 21300000, guid: c2ba4c1623fad5f4aa512be18df3ad4d, type: 3}
+  fishName: Swordy
+  dropChance: 50
+  sellPrice: 300
