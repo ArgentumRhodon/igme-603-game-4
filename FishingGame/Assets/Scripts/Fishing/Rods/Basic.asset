@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf8bd30eb5f0ea46986c04304e6ab5f, type: 3}
   m_Name: Basic
   m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 9f62f8a676791b6409055337702621be, type: 3}
   title: Basic
   castingLength: 1
-  ease: 1
-  frenzyChance: 0.05
+  percentFishLuck: 10
+  percentFrenzyBoost: 5
   playerOwns: 1

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf8bd30eb5f0ea46986c04304e6ab5f, type: 3}
   m_Name: Intermediate
   m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: d25f2dba7336800479d80018361fcf9a, type: 3}
   title: Intermediate
   castingLength: 2
-  ease: 1.5
-  frenzyChance: 0.1
+  percentFishLuck: 20
+  percentFrenzyBoost: 10
+  playerOwns: 0

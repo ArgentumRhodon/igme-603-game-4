@@ -5,15 +5,21 @@ using TMPro;
 
 public class FishMechanic : MonoBehaviour
 {
-    [SerializeField] GameObject fishPrompt;
+    [SerializeField] GameObject catchPrompt;
+    [SerializeField] GameObject frenzyPrompt;
+    [SerializeField] GameObject escapePrompt;
     [SerializeField] GameObject fishCatchingPrompt;
     [SerializeField] GameObject fishingLine;
     [SerializeField] FishSlider fishSlider;
     [SerializeField] TextMeshProUGUI fishText;
+
     bool isFishTugging = false;
+    bool isFrenzyMode = false;
     bool isTugofWar = false;
     bool isCanCast = true;
+    
     float catchProgress = 0f;
+    float escapeTimer = 0f;
 
     // Random switch variables
     float minSwitchInterval = 0.5f; // Minimum interval between switches
@@ -41,6 +47,11 @@ public class FishMechanic : MonoBehaviour
             if (isTugofWar)
             {
                 TugofWar();
+            }
+
+            if (isFrenzyMode)
+            {
+                frenzyMode();
             }
         }
     }
@@ -73,6 +84,7 @@ public class FishMechanic : MonoBehaviour
                 fishSlider.SetFillColor(FillColor.Normal);
             }
         }
+
         // Player should wait
         else
         {
@@ -84,18 +96,30 @@ public class FishMechanic : MonoBehaviour
             }
         }
 
+        // Fish is caught 
         if (catchProgress >= 1)
         {
             fishSlider.SetFillColor(FillColor.Success);
             fishText.text = "Success!";
 
             fishingLine.SetActive(false);
-            fishPrompt.SetActive(false);
+            catchPrompt.SetActive(false);
 
             StartCoroutine(sliderWait());
 
             isTugofWar = false;
 
+            GetComponent<FishLootBag>().InstantiateLoot(transform.position);
+        }
+    }
+
+    void frenzyMode()
+    {
+        // Activates frenzy mode while prompt is active
+        frenzyPrompt.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.Space) && frenzyPrompt.activeSelf == true)
+        {
             GetComponent<FishLootBag>().InstantiateLoot(transform.position);
         }
     }
@@ -114,30 +138,69 @@ public class FishMechanic : MonoBehaviour
 
     void castLine()
     {
+        // Casts line and wait for a bite
         if (Input.GetKeyDown(KeyCode.W))
         {
             isCanCast = false;
             fishingLine.SetActive(true);
-            StartCoroutine(promptCoroutine(Random.Range(2f, 9f)));
+            StartCoroutine(fishBite(Random.Range(2f, 9f)));
         }
     }
 
     void catchFish()
     {
-        if (fishPrompt.activeSelf == true)
+        float chance = 0;
+
+        if (catchPrompt.activeSelf == true) // checks to see if pormopt is active
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            escapeTimer += .05f; // increments the timer before the fish escapes
+            if (Input.GetKeyDown(KeyCode.Space) && escapeTimer <= 50)
             {
-                fishPrompt.SetActive(false);
-                isTugofWar = true;
+                catchPrompt.SetActive(false);
+                chance = Random.Range(1, 101); // calcuates chance out of 100%
+
+                if (chance <= 5) //Chance of getting frenzymode
+                {
+                    isFrenzyMode = true;
+                    StartCoroutine(frenzyStart(3));
+                }
+                else
+                {
+                    isTugofWar = true;
+                }
+            }
+            if (escapeTimer > 50)
+            {
+                StartCoroutine(fishEscape());
             }
         }
     }
 
-    IEnumerator promptCoroutine(float randNum)
+    IEnumerator fishBite(float randNum)
     {
         yield return new WaitForSeconds(randNum);
-        fishPrompt.SetActive(true);
+        catchPrompt.SetActive(true);
+    }
+
+    IEnumerator fishEscape()
+    {
+        catchPrompt.SetActive(false);
+        escapePrompt.SetActive(true);
+        yield return new WaitForSeconds(1.6f);
+        fishingLine.SetActive(false);
+        escapePrompt.SetActive(false);
+        isCanCast = true;
+        escapeTimer = 0;
+    }
+
+    IEnumerator frenzyStart(float timeLength)
+    {
+        yield return new WaitForSeconds(timeLength);
+
+        fishingLine.SetActive(false);
+        frenzyPrompt.SetActive(false);
+        isFrenzyMode = false;
+        isCanCast = true;
     }
 
     IEnumerator sliderWait()
