@@ -9,4 +9,5 @@ public class Rod : ScriptableObject
     public float castingLength;
     public float ease;
     public float frenzyChance;
+    public bool playerOwns = false;
 }

@@ -16,3 +16,4 @@ MonoBehaviour:
   castingLength: 1
   ease: 1
   frenzyChance: 0.05
+  playerOwns: 1
