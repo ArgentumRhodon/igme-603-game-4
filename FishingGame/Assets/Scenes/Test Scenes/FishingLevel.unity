@@ -975,6 +975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 7560943767825171414, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7973499777108091060, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
       propertyPath: m_RootOrder
       value: 3
