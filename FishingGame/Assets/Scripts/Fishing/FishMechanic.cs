@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Security.Cryptography;
 
 public class FishMechanic : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class FishMechanic : MonoBehaviour
     [SerializeField] GameObject fishCatchingPrompt;
     [SerializeField] GameObject fishingLine;
     [SerializeField] FishSlider fishSlider;
+    [SerializeField] FishingStats fishingStats;
     [SerializeField] TextMeshProUGUI fishText;
 
     bool isFishTugging = false;
@@ -143,7 +145,7 @@ public class FishMechanic : MonoBehaviour
         {
             isCanCast = false;
             fishingLine.SetActive(true);
-            StartCoroutine(fishBite(Random.Range(2f, 9f)));
+            StartCoroutine(fishBite(Random.Range(2f, 9f * (1 - fishingStats.currentRod.percentFishLuck/100))));
         }
     }
 
@@ -159,7 +161,7 @@ public class FishMechanic : MonoBehaviour
                 catchPrompt.SetActive(false);
                 chance = Random.Range(1, 101); // calcuates chance out of 100%
 
-                if (chance <= 5) //Chance of getting frenzymode
+                if (chance <= 5 + fishingStats.currentRod.percentFrenzyBoost) //Chance of getting frenzymode
                 {
                     isFrenzyMode = true;
                     StartCoroutine(frenzyStart(3));

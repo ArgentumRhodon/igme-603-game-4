@@ -1635,9 +1635,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - item: {fileID: 11400000, guid: 04723e4d8b7516748bab24d592b575f7, type: 2}
-    value: 15000
+    value: 1000
   - item: {fileID: 11400000, guid: 4d3ea9291548d9f4f8b6e4ef8de48a75, type: 2}
-    value: 50000
+    value: 7500
   UIPrefab: {fileID: 3899911677351103845, guid: 39adb81cf059d8c458939d00b5689cc2, type: 3}
 --- !u!114 &1286220323 stripped
 MonoBehaviour:
@@ -1757,6 +1757,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1286220323}
     - target: {fileID: 1562269378659571715, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
+      propertyPath: currentRod
+      value: 
+      objectReference: {fileID: 925838928}
+    - target: {fileID: 1562269378659571715, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
       propertyPath: fishSlider
       value: 
       objectReference: {fileID: 1974647445}
@@ -1772,6 +1776,10 @@ PrefabInstance:
       propertyPath: escapePrompt
       value: 
       objectReference: {fileID: 313260664}
+    - target: {fileID: 1562269378659571715, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
+      propertyPath: fishingStats
+      value: 
+      objectReference: {fileID: 925838928}
     - target: {fileID: 1562269378659571715, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
       propertyPath: frenzyPrompt
       value: 

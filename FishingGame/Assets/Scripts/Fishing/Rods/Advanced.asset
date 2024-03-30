@@ -15,6 +15,5 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 70fd1d2852d69ac4bbedf2a5a89475c6, type: 3}
   title: Advanced
   castingLength: 3
-  percentFishLuck: 35
-  percentFrenzyBoost: 25
-  playerOwns: 0
+  percentFishLuck: 60
+  percentFrenzyBoost: 30
