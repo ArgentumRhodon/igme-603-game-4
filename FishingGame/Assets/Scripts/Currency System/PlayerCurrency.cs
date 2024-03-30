@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -10,7 +11,22 @@ public static class PlayerCurrency
     public static int playerCash = 0;
 
     //For in-game purchase
-    public static int playerJewels = 0;
+    public static int playerGems = 0;
 
+    public static GameObject CashText;
+    public static GameObject GemText;
 
+    public static void UpdateCash(int amount)
+    {
+        playerCash += amount;
+        GameObject.Find("CashText").GetComponent<TextMeshProUGUI>().text = playerCash.ToString();
+        Debug.Log(playerCash);
+    }
+
+    public static void UpdateGem(int amount)
+    {
+        playerGems += amount;
+        GameObject.Find("GemText").GetComponent<TextMeshProUGUI>().text = playerCash.ToString();
+        Debug.Log(playerGems);
+    }
 }
