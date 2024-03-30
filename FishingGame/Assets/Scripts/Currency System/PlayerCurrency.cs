@@ -1,36 +1,32 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+
 
 //Created by Rin
 public static class PlayerCurrency
 {
-    // For normal currency
-    private static int _playerCash = 0;
-    public static int PlayerCash
+    //For normal currency
+    public static int playerCash = 0;
+
+    //For in-game purchase
+    public static int playerGems = 0;
+
+    public static GameObject CashText;
+    public static GameObject GemText;
+
+    public static void UpdateCash(int amount)
     {
-        get { return _playerCash; }
-        set 
-        {
-            _playerCash = value;
-            OnCashChanged?.Invoke(_playerCash);
-        }
+        playerCash += amount;
+        GameObject.Find("CashText").GetComponent<TextMeshProUGUI>().text = playerCash.ToString();
+        Debug.Log(playerCash);
     }
 
-    // For in-game purchases
-    private static int _playerJewels = 0;
-    public static int PlayerJewels
+    public static void UpdateGem(int amount)
     {
-        get { return _playerJewels; }
-        set 
-        {
-            _playerJewels = value;
-            OnJewelsChanged?.Invoke(_playerJewels);
-        }
+        playerGems += amount;
+        GameObject.Find("GemText").GetComponent<TextMeshProUGUI>().text = playerCash.ToString();
+        Debug.Log(playerGems);
     }
-
-    // Event for cash change -- update UI on changes instead of every frame for efficiency
-    public static event Action<int> OnCashChanged;
-
-    // Event for jewels change
-    public static event Action<int> OnJewelsChanged;
 }

@@ -34,12 +34,12 @@ public class RodUpgrade : MonoBehaviour
 
     public void Purchase()
     {
-        if (PlayerCurrency.PlayerCash < cost)
+        if (PlayerCurrency.playerCash < cost)
         {
             return;
         }
 
-        PlayerCurrency.PlayerCash -= cost;
+        PlayerCurrency.UpdateCash(-cost);
         FindFirstObjectByType<FishingStats>().currentRod = rod;
     }
 }

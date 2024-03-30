@@ -322,10 +322,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 107857509854038923, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
+      propertyPath: m_text
+      value: '0
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 132543206941011804, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1062431809}
+    - target: {fileID: 281226379774478661, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
+      propertyPath: m_Name
+      value: GemText
+      objectReference: {fileID: 0}
     - target: {fileID: 465388541726808183, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -409,6 +419,10 @@ PrefabInstance:
     - target: {fileID: 550842332844100948, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 621415049616179537, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
+      propertyPath: m_text
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 768058747980720876, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -529,6 +543,10 @@ PrefabInstance:
     - target: {fileID: 1419839017264566738, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -522.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1538246157750916646, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
+      propertyPath: m_Name
+      value: CashText
       objectReference: {fileID: 0}
     - target: {fileID: 1602028222457504197, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1314,7 +1332,8 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1062431809}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5965476866942782997, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3553836140383447057, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
     - {fileID: 8472332100862105966, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
