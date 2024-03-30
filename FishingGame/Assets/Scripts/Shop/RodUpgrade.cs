@@ -20,6 +20,13 @@ public class RodUpgrade : MonoBehaviour
     private int cost;
     private Rod rod;
 
+    List<Rod> purchasedRods;
+
+    private void Start()
+    {
+        purchasedRods = new List<Rod>();
+    }
+
     public void Populate(Rod rod, int cost)
     {
         image.sprite = rod.image;
@@ -34,12 +41,15 @@ public class RodUpgrade : MonoBehaviour
 
     public void Purchase()
     {
-        if (PlayerCurrency.playerCash < cost)
+        if (PlayerCurrency.playerCash < cost || purchasedRods.Contains(rod))
         {
             return;
         }
 
+        purchasedRods.Add(rod);
+
         PlayerCurrency.UpdateCash(-cost);
+        GameObject.Find("Rod").GetComponent<SpriteRenderer>().sprite = rod.image;
         FindFirstObjectByType<FishingStats>().currentRod = rod;
     }
 }

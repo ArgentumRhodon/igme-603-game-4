@@ -11,5 +11,4 @@ public class Rod : ScriptableObject
     public float castingLength;
     public float percentFishLuck;
     public float percentFrenzyBoost;
-    public bool playerOwns = false;
 }

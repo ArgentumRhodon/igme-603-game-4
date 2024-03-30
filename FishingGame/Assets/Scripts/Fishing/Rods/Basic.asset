@@ -17,4 +17,4 @@ MonoBehaviour:
   castingLength: 1
   percentFishLuck: 10
   percentFrenzyBoost: 5
-  playerOwns: 1
+  playerOwns: 0
