@@ -212,6 +212,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7560943767825171414, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
   m_PrefabInstance: {fileID: 6554307314567920263}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &649295832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2226728854665805962, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
+  m_PrefabInstance: {fileID: 6554307314567920263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &735533468 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8876461331966853575, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
@@ -296,6 +301,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2917855086034374059, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
   m_PrefabInstance: {fileID: 6554307314567920263}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &925838928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649295832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c7063370c0ad2459533f6d879c5e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentRod: {fileID: 11400000, guid: c6fdff364008f5645a9b16cce4837c70, type: 2}
 --- !u!1001 &948703803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1318,7 +1336,7 @@ GameObject:
   - component: {fileID: 1013684542}
   - component: {fileID: 1013684541}
   m_Layer: 0
-  m_Name: Basic
+  m_Name: Rod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1776,5 +1794,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2917855086034374059, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
       insertIndex: -1
       addedObject: {fileID: 344503117}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2226728854665805962, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 925838928}
   m_SourcePrefab: {fileID: 100100000, guid: eaf418a8d2493f1429a5faf433df9600, type: 3}

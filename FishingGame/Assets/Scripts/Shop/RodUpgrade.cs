@@ -18,6 +18,7 @@ public class RodUpgrade : MonoBehaviour
     private TextMeshProUGUI priceText;
 
     private int cost;
+    private Rod rod;
 
     public void Populate(Rod rod, int cost)
     {
@@ -28,15 +29,17 @@ public class RodUpgrade : MonoBehaviour
         priceText.text = cost.ToString();
 
         this.cost = cost;
+        this.rod = rod;
     }
 
     public void Purchase()
     {
-        if(PlayerCurrency.PlayerCash < cost)
+        if (PlayerCurrency.PlayerCash < cost)
         {
             return;
         }
 
         PlayerCurrency.PlayerCash -= cost;
+        FindFirstObjectByType<FishingStats>().currentRod = rod;
     }
 }
