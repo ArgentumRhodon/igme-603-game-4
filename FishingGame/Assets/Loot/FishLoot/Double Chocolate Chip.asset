@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0da092be8e1ff254abf953ceedc33820, type: 3}
-  m_Name: Greeny
+  m_Name: Double Chocolate Chip
   m_EditorClassIdentifier: 
   fishId: 3
-  fishLootSprite: {fileID: 21300000, guid: 38d7cb9dccfc4b146b2455988d4b186e, type: 3}
-  fishName: Greeny
+  fishLootSprite: {fileID: 21300000, guid: 9d1b797dac8b001458e9da64d00df846, type: 3}
+  fishName: Double Chocolate Chip
   dropChance: 100
   sellPrice: 100

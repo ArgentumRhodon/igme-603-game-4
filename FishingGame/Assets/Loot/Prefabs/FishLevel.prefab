@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8e1e6aeaa4a4b4c43b88c62d744d9f9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b03bf2aff0b505b4c9c689e668af6fc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -332,6 +332,7 @@ MonoBehaviour:
   fishCatchingPrompt: {fileID: 0}
   fishingLine: {fileID: 1977451862440234737}
   fishSlider: {fileID: 0}
+  fishingStats: {fileID: 0}
   fishText: {fileID: 0}
 --- !u!1001 &4194588708642554996
 PrefabInstance:

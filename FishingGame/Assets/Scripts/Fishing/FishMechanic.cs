@@ -161,7 +161,7 @@ public class FishMechanic : MonoBehaviour
                 catchPrompt.SetActive(false);
                 chance = Random.Range(1, 101); // calcuates chance out of 100%
 
-                if (chance <= 5 + fishingStats.currentRod.percentFrenzyBoost) //Chance of getting frenzymode
+                if (chance <= 99 + fishingStats.currentRod.percentFrenzyBoost) //Chance of getting frenzymode
                 {
                     isFrenzyMode = true;
                     StartCoroutine(frenzyStart(3));
