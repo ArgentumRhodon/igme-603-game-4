@@ -11,7 +11,7 @@ public static class PlayerCurrency
     public static int playerCash = 0;
 
     //For in-game purchase
-    public static int playerGems = 0;
+    public static int playerGems = 10000;
 
     public static GameObject CashText;
     public static GameObject GemText;
@@ -26,7 +26,7 @@ public static class PlayerCurrency
     public static void UpdateGem(int amount)
     {
         playerGems += amount;
-        GameObject.Find("GemText").GetComponent<TextMeshProUGUI>().text = playerCash.ToString();
+        GameObject.Find("GemText").GetComponent<TextMeshProUGUI>().text = playerGems.ToString();
         Debug.Log(playerGems);
     }
 }

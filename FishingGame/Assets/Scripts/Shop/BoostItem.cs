@@ -14,6 +14,9 @@ public class BoostItem : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI priceText;
 
+    private Boost boost;
+    private int cost;
+
     public void Populate(Boost boost, int cost)
     {
         nameText.text = boost.name;
@@ -21,10 +24,18 @@ public class BoostItem : MonoBehaviour
         string secondLine = boost.type == BoostType.Frenzy ? "Frenzy Chance" : "Fish Luck";
         text2.text = $"+ {boost.boostSize}% {secondLine}";
         priceText.text = cost.ToString();
+        
+        this.boost = boost;
+        this.cost = cost;
     }
 
     public void Purchase()
     {
-        Debug.Log("Purchased!");
+        if(PlayerCurrency.playerGems < cost)
+        {
+            return;
+        }
+
+        PlayerCurrency.UpdateGem(-cost);
     }
 }
