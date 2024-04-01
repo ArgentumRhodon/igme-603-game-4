@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0da092be8e1ff254abf953ceedc33820, type: 3}
-  m_Name: Swordy
+  m_Name: Chocolate Chip
   m_EditorClassIdentifier: 
-  fishId: 7
-  fishLootSprite: {fileID: 21300000, guid: c2ba4c1623fad5f4aa512be18df3ad4d, type: 3}
-  fishName: Swordy
-  dropChance: 50
-  sellPrice: 300
+  fishId: 5
+  fishLootSprite: {fileID: 21300000, guid: a9772081edef1aa4eaac47d30daa51ea, type: 3}
+  fishName: Chocolate Chip
+  dropChance: 90
+  sellPrice: 150

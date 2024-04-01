@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,6 +50,12 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
+        // Restarts game back to main menu
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Restart();
+        }
+
         if (!isPaused && !GameUI.Instance.IsScreenActive("Start Screen"))
         {
             // Open Inventory -- Rin
@@ -88,6 +95,17 @@ public class GameManager : MonoBehaviour
             GameUI.Instance.SetIsScreenActive("Pause Screen", false);
             GameUI.Instance.SetAllScreensActive(false);
             Time.timeScale = 1f;
+        }
+    }
+
+    public void Restart()
+    {
+        // Don't do in start menu
+        if (GameUI.Instance.IsScreenActive("Start Screen")) return;
+
+        if (!isPaused)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

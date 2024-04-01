@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0da092be8e1ff254abf953ceedc33820, type: 3}
-  m_Name: Dirty
+  m_Name: Red Velvet
   m_EditorClassIdentifier: 
   fishId: 6
-  fishLootSprite: {fileID: 21300000, guid: 304e501fe83222c45b9fecb8d06b28b7, type: 3}
-  fishName: Dirty
+  fishLootSprite: {fileID: 21300000, guid: 2e1af19b86f07fd42b4404e6cb1307c2, type: 3}
+  fishName: Red Velvet
   dropChance: 80
   sellPrice: 200
