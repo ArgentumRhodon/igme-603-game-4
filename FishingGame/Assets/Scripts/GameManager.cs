@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-    public bool isPaused = false;
+    [HideInInspector] public bool isPaused = false;
     
     public static GameManager Instance
     {
@@ -49,21 +49,22 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
-        // Open Inventory -- Rin
-        if (Input.GetKeyDown(KeyCode.I))
+        if (!isPaused && !GameUI.Instance.IsScreenActive("Start Screen"))
         {
-            if(GameUI.Instance.IsScreenActive("Inventory UI"))
+            // Open Inventory -- Rin
+            if (Input.GetKeyDown(KeyCode.I))
             {
-                CloseInventory();
+                if (GameUI.Instance.IsScreenActive("Inventory UI"))
+                {
+                    CloseInventory();
+                }
+                else
+                {
+                    OpenInventory();
+                }
+
             }
-            else
-            {
-                OpenInventory();
-            }
-            
         }
-
-
     }
 
     public void Pause()

@@ -31,20 +31,6 @@ public class Inventory : MonoBehaviour
 
         currentFishObject.transform.Find("SellButton").GetComponent<Button>().interactable = true;
 
-
-
-/*        //Generate fish in the inventory
-        GameObject fishObject = Instantiate(fishInstance, transform.position, Quaternion.identity);
-        fishObject.transform.SetParent(fishContentList.transform);
-        //Set sprite and name
-        fishObject.GetComponent<Image>().sprite = fishSprite;
-        fishObject.GetComponentInChildren<TextMeshProUGUI>().text = fishName;
-        //Set price
-        fishObject.GetComponent<InventoryFish>().fishPrice = fishPrice;
-        //Set RectTransform
-        RectTransform rectTransform = fishObject.GetComponent<RectTransform>();
-        rectTransform.localPosition = Vector3.zero;
-        rectTransform.localScale = Vector3.one;*/
     }
 
 
@@ -52,12 +38,14 @@ public class Inventory : MonoBehaviour
     {
         //Reset Amount 
         GameObject currentFishObject = collectedFishList[fishId - 1];
-        fishAmountList[fishId - 1] = 0;
+        
         currentFishObject.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = "Amount: 0";
 
         currentFishObject.transform.Find("SellButton").GetComponent<Button>().interactable = false;
 
         //Player add money
-        PlayerCurrency.playerCash += fishAmountList[fishId] * fishPriceList[fishId];
+        PlayerCurrency.UpdateCash(fishAmountList[fishId - 1] * fishPriceList[fishId - 1]);
+        
+        fishAmountList[fishId - 1] = 0;
     }
 }
