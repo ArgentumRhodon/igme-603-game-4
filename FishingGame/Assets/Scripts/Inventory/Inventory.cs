@@ -14,9 +14,9 @@ public class Inventory : MonoBehaviour
     public List<GameObject> collectedFishList;
 
     //Store all fish amount
-    int[] fishAmountList = new int[8];
+    int[] fishAmountList = new int[13];
     //Store all fish price
-    int[] fishPriceList = new int[8];
+    int[] fishPriceList = new int[13];
 
     public void AddFishLoot(Sprite fishSprite,int fishPrice, string fishName,int fishId)
     {
