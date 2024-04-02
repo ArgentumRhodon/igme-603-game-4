@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BoostItem : MonoBehaviour
 {
+    public static Boost currentBoost = null;
+
     [SerializeField]
     private TextMeshProUGUI nameText;
     [SerializeField]
@@ -31,11 +34,51 @@ public class BoostItem : MonoBehaviour
 
     public void Purchase()
     {
-        if(PlayerCurrency.playerGems < cost)
+        if(PlayerCurrency.playerGems < cost || currentBoost != null)
         {
             return;
         }
 
+        currentBoost = boost;
         PlayerCurrency.UpdateGem(-cost);
+        BuffPlayer();
     }
+
+
+    public void BuffPlayer()
+    {
+        BoostTimer.Instance.StartTimer(boost);
+
+        FishingStats stats = FindFirstObjectByType<FishingStats>();
+        switch (boost.type)
+        {
+            case BoostType.Frenzy:
+                stats.frenzyBoost = boost.boostSize;
+                Invoke(nameof(ResetBoost), boost.duration * 60);
+                break;
+            case BoostType.Fishing:
+                stats.fishingBoost = boost.boostSize;
+                Invoke(nameof(ResetBoost), boost.duration * 60);
+                break;
+        }
+    }
+
+    public void ResetBoost()
+    {
+        BoostTimer.Instance.StopTimer();
+
+        currentBoost = null;
+        FishingStats stats = FindFirstObjectByType<FishingStats>();
+        switch (boost.type)
+        {
+            case BoostType.Frenzy:
+                stats.frenzyBoost = 0;
+                break;
+            case BoostType.Fishing:
+                stats.fishingBoost = 0;
+                break;
+        }
+    }
+
+
 }

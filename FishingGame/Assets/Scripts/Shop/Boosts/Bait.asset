@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a71db3e1e94ab24ea3f3232a37f1d01, type: 3}
   m_Name: Bait
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 1
   boostSize: 25
   type: 1

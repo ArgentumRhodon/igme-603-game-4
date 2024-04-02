@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 7900842456015033563}
   - component: {fileID: 438564941103151372}
   - component: {fileID: 615837019143613316}
+  - component: {fileID: 1927384993305810974}
   m_Layer: 0
   m_Name: Currency
   m_TagString: Untagged
@@ -183,6 +184,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1927384993305810974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645647703190751440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b847da546f37b04e82d724a9bd85c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberText: {fileID: 6880120192332923515}
+  priceText: {fileID: 5112394090617879198}
 --- !u!1 &4504339905048068802
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +456,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1701594101162794654}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1927384993305810974}
+        m_TargetAssemblyTypeName: GemPurchase, Assembly-CSharp
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8149407075792689609
 GameObject:
   m_ObjectHideFlags: 0

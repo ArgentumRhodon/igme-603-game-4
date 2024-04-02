@@ -8,10 +8,10 @@ using UnityEngine;
 public static class PlayerCurrency
 {
     //For normal currency
-    public static int playerCash = 0;
+    public static int playerCash = 10000;
 
     //For in-game purchase
-    public static int playerGems = 10000;
+    public static int playerGems = 0;
 
     public static GameObject CashText;
     public static GameObject GemText;

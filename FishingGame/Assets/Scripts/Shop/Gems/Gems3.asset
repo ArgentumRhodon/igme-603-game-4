@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a71db3e1e94ab24ea3f3232a37f1d01, type: 3}
-  m_Name: Fish Food
+  m_Script: {fileID: 11500000, guid: 1320252277c6ed649a87cbdb474028c7, type: 3}
+  m_Name: Gems3
   m_EditorClassIdentifier: 
-  duration: 3
-  boostSize: 25
-  type: 0
+  numGems: 15000
