@@ -26,7 +26,7 @@ public static class PlayerCurrency
     public static void UpdateGem(int amount)
     {
         playerGems += amount;
-        GameObject.Find("GemText").GetComponent<TextMeshProUGUI>().text = playerCash.ToString();
+        GameObject.Find("GemText").GetComponent<TextMeshProUGUI>().text = playerGems.ToString();
         Debug.Log(playerGems);
     }
 }

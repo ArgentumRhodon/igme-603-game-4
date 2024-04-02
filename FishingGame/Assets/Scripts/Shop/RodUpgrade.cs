@@ -20,7 +20,7 @@ public class RodUpgrade : MonoBehaviour
     private int cost;
     private Rod rod;
 
-    List<Rod> purchasedRods;
+    public static List<Rod> purchasedRods;
 
     private void Start()
     {

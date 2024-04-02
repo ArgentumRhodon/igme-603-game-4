@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 7302034124013072572}
   - component: {fileID: 462130925328185580}
   - component: {fileID: 3357993137177151674}
+  - component: {fileID: 4092840201074167195}
   m_Layer: 0
   m_Name: Boost
   m_TagString: Untagged
@@ -577,6 +578,22 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4092840201074167195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3899911677351103845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69bd667dfe70df409f050696fc13f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 3014340905796660107}
+  text1: {fileID: 8606736805394632197}
+  text2: {fileID: 8027034574060797277}
+  priceText: {fileID: 8735544681453454477}
 --- !u!1 &4221552296832955042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,7 +1132,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 880006074067169457}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4092840201074167195}
+        m_TargetAssemblyTypeName: BoostItem, Assembly-CSharp
+        m_MethodName: Purchase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8599576202154869219
 GameObject:
   m_ObjectHideFlags: 0
