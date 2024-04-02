@@ -15,5 +15,5 @@ MonoBehaviour:
   fishId: 5
   fishLootSprite: {fileID: 21300000, guid: a9772081edef1aa4eaac47d30daa51ea, type: 3}
   fishName: Chocolate Chip
-  dropChance: 90
+  dropChance: 70
   sellPrice: 150

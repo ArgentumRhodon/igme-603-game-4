@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
+using static UnityEngine.GraphicsBuffer;
 
 public class FishLootBag : MonoBehaviour
 {
     public GameObject droppedItemPrefab;
     public List<FishLoot> fishLootList = new List<FishLoot>();
+
+    [SerializeField] FishingStats fishingStats;
 
     [SerializeField] private float dropForce = 300f;
 
@@ -27,7 +31,7 @@ public class FishLootBag : MonoBehaviour
         List<FishLoot> possibleItems = new List<FishLoot>();
         foreach (FishLoot item in fishLootList)
         {
-            if (randNum <= item.dropChance)
+            if (randNum <= (item.dropChance + fishingStats.FishingSkill))
             {
                 possibleItems.Add(item);
             }
@@ -53,11 +57,10 @@ public class FishLootBag : MonoBehaviour
             playerInventory.AddFishLoot(droppedItem.fishLootSprite, droppedItem.sellPrice, droppedItem.fishName,droppedItem.fishId);
 
 
-            Vector3 dropDirection = new Vector3(Random.Range(-.5f, .25f), 1f, 0f);
-            fishLootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce, ForceMode2D.Impulse);
+            //Vector3 dropDirection = new Vector3(Random.Range(-.5f, .25f), 1f, 0f);
+            //fishLootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce, ForceMode2D.Impulse);
 
             Destroy(fishLootGameObject, 2);
-
         }
     }
 }

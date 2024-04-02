@@ -145,7 +145,7 @@ public class FishMechanic : MonoBehaviour
         {
             isCanCast = false;
             fishingLine.SetActive(true);
-            StartCoroutine(fishBite(Random.Range(2f, 9f * (1 - fishingStats.FishingSkill/100))));
+            StartCoroutine(fishBite(Random.Range(2f, 9f)));
         }
     }
 
