@@ -15,5 +15,5 @@ MonoBehaviour:
   fishId: 6
   fishLootSprite: {fileID: 21300000, guid: 2e1af19b86f07fd42b4404e6cb1307c2, type: 3}
   fishName: Red Velvet
-  dropChance: 80
+  dropChance: 70
   sellPrice: 200

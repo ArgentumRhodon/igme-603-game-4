@@ -15,5 +15,5 @@ MonoBehaviour:
   fishId: 11
   fishLootSprite: {fileID: 21300000, guid: 5b10cfb16357c7044b68882817e5c039, type: 3}
   fishName: Biscotti
-  dropChance: 5
+  dropChance: -50
   sellPrice: 2000

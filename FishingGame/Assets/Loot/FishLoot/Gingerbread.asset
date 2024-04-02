@@ -15,5 +15,5 @@ MonoBehaviour:
   fishId: 8
   fishLootSprite: {fileID: 21300000, guid: 29edaf19e77b49341a716433ccf77eee, type: 3}
   fishName: Gingerbread
-  dropChance: 5
+  dropChance: -35
   sellPrice: 1500
