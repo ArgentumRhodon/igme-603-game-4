@@ -106,6 +106,8 @@ public class GameManager : MonoBehaviour
         if (!isPaused)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            PlayerCurrency.playerCash = 0;
+            PlayerCurrency.playerGems = 0;
         }
     }
 
