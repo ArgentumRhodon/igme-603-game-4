@@ -79,22 +79,21 @@ public class FishMechanic : MonoBehaviour
         // Player winds the fish in
         if (!isFishTugging)
         {
+            fishSlider.SetFillColor(FillColor.Normal);
             if (Input.GetKeyDown(KeyCode.Space) && catchProgress < 1)
             {
                 catchProgress += 0.05f;
                 fishSlider.UpdateSliderValue(catchProgress);
-                fishSlider.SetFillColor(FillColor.Normal);
             }
         }
-
         // Player should wait
         else
         {
+            fishSlider.SetFillColor(FillColor.Bad);
             if (Input.GetKeyDown(KeyCode.Space) && catchProgress > 0)
             {
                 catchProgress -= 0.05f;
                 fishSlider.UpdateSliderValue(catchProgress);
-                fishSlider.SetFillColor(FillColor.Bad);
             }
         }
 
@@ -102,7 +101,7 @@ public class FishMechanic : MonoBehaviour
         if (catchProgress >= 1)
         {
             fishSlider.SetFillColor(FillColor.Success);
-            fishText.text = "Success!";
+            fishText.text = "FISH CAUGHT!";
 
             fishingLine.SetActive(false);
             catchPrompt.SetActive(false);
@@ -130,7 +129,7 @@ public class FishMechanic : MonoBehaviour
     {
         if (isFishTugging)
         {
-            fishText.text = "Stop! It's tugging.";
+            fishText.text = "STOP! It's tugging!";
         }
         else
         {

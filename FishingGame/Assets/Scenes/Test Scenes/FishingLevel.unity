@@ -901,10 +901,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -522.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1465716899919631693, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: debe0be3707d88d4ea44cc51d77c2881, type: 3}
     - target: {fileID: 1538246157750916646, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_Name
       value: CashText
@@ -961,6 +957,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 1713473881729195751, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a7688f77113260149bc749cb61a25c0f, type: 3}
     - target: {fileID: 1769032985286498865, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1389,10 +1389,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3564278922156994062, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 63bfdf844f383e34ebedc18fccbbde3b, type: 3}
     - target: {fileID: 3565240430579036684, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 160
@@ -1761,6 +1757,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5939634442526352838, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a7688f77113260149bc749cb61a25c0f, type: 3}
     - target: {fileID: 5978961860643033274, guid: c6ea140dae5cd1b449574bca7be7ad49, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
