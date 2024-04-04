@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abf8bd30eb5f0ea46986c04304e6ab5f, type: 3}
-  m_Name: Rod2
+  m_Name: Legendary
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: c1e4e0a2a831b584b8b0dbeb12f763c5, type: 3}
-  title: Rod 2
-  castingLength: 2
-  percentFishLuck: 15
-  percentFrenzyBoost: 10
+  image: {fileID: 21300000, guid: ec6b89032088fcc4daa379b8ce19ee12, type: 3}
+  title: Legendary Lunker
+  castingLength: 4
+  percentFishLuck: 25
+  percentFrenzyBoost: 20
