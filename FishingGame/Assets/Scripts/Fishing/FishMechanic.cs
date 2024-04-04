@@ -129,7 +129,7 @@ public class FishMechanic : MonoBehaviour
         if (catchProgress >= .1f)
         {
             isCanEscape = true;
-            Debug.Log("Can now escape");
+            //Debug.Log("Can now escape");
         }
 
         if (catchProgress <= 0.001 && isCanEscape == true)
