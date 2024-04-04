@@ -30,7 +30,7 @@ public class RodUpgrade : MonoBehaviour
     public void Populate(Rod rod, int cost)
     {
         image.sprite = rod.image;
-        nameText.text = rod.name;
+        nameText.text = rod.title;
         text1.text = $"+ {rod.percentFishLuck}% Fish Luck";
         text2.text = $"+ {rod.percentFrenzyBoost}% Frenzy Chance";
         priceText.text = cost.ToString();

@@ -2740,6 +2740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
+  - item: {fileID: 11400000, guid: c6fdff364008f5645a9b16cce4837c70, type: 2}
+    value: 500
+  - item: {fileID: 11400000, guid: 04723e4d8b7516748bab24d592b575f7, type: 2}
+    value: 1000
   - item: {fileID: 11400000, guid: 11bf091c4217c424f9ed82bd1ce51af8, type: 2}
     value: 2500
   - item: {fileID: 11400000, guid: 1cdaf4ac4c2ff9945bcf5e060abbd300, type: 2}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abf8bd30eb5f0ea46986c04304e6ab5f, type: 3}
-  m_Name: Rod3
+  m_Name: Adept
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: c160b4258e24e9d4ea72b5e3348ed7c7, type: 3}
-  title: Rod 3
-  castingLength: 3
-  percentFishLuck: 20
-  percentFrenzyBoost: 15
+  image: {fileID: 21300000, guid: 8ebe9fe86a1fbce45992d979239cb08e, type: 3}
+  title: Adept's Angler
+  castingLength: 1
+  percentFishLuck: 10
+  percentFrenzyBoost: 10

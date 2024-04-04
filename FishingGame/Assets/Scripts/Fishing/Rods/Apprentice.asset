@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abf8bd30eb5f0ea46986c04304e6ab5f, type: 3}
-  m_Name: Advanced
+  m_Name: Apprentice
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 70fd1d2852d69ac4bbedf2a5a89475c6, type: 3}
-  title: Advanced
-  castingLength: 3
-  percentFishLuck: 60
-  percentFrenzyBoost: 30
+  image: {fileID: 21300000, guid: d25f2dba7336800479d80018361fcf9a, type: 3}
+  title: Apprentice's Apprehender
+  castingLength: 2
+  percentFishLuck: 10
+  percentFrenzyBoost: 5
