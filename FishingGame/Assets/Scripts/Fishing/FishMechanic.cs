@@ -19,6 +19,7 @@ public class FishMechanic : MonoBehaviour
     bool isFrenzyMode = false;
     bool isTugofWar = false;
     bool isCanCast = true;
+    bool isCanEscape = false;
     
     float catchProgress = 0f;
     float escapeTimer = 0f;
@@ -62,6 +63,13 @@ public class FishMechanic : MonoBehaviour
     {
         fishCatchingPrompt.SetActive(true);
 
+        // Constant tugging. Can me modifyed to tug harder or softer randomly or for specific fish
+        if (catchProgress > 0)
+        {
+            catchProgress -= 0.00005f;
+            fishSlider.UpdateSliderValue(catchProgress);
+        }
+
         // Increment switch timer
         switchTimer += Time.deltaTime;
 
@@ -79,27 +87,30 @@ public class FishMechanic : MonoBehaviour
         // Player winds the fish in
         if (!isFishTugging)
         {
-            fishSlider.SetFillColor(FillColor.Normal);
+            fishText.color = new Color(0.2725308f, 0.9339623f, 0.2702029f); // Green
             if (Input.GetKeyDown(KeyCode.Space) && catchProgress < 1)
             {
                 catchProgress += 0.05f;
                 fishSlider.UpdateSliderValue(catchProgress);
+                fishSlider.SetFillColor(FillColor.Normal);
             }
         }
         // Player should wait
         else
         {
-            fishSlider.SetFillColor(FillColor.Bad);
+            fishText.color = new Color(0.9333333f, 0.03921568f, 0.1011488f); // Red
             if (Input.GetKeyDown(KeyCode.Space) && catchProgress > 0)
             {
-                catchProgress -= 0.05f;
+                catchProgress -= 0.025f;
                 fishSlider.UpdateSliderValue(catchProgress);
+                fishSlider.SetFillColor(FillColor.Bad);
             }
         }
 
         // Fish is caught 
         if (catchProgress >= 1)
         {
+            fishText.color = new Color(0.972549f, 0.9355273f, 0f); // Yellow
             fishSlider.SetFillColor(FillColor.Success);
             fishText.text = "FISH CAUGHT!";
 
@@ -111,6 +122,29 @@ public class FishMechanic : MonoBehaviour
             isTugofWar = false;
 
             GetComponent<FishLootBag>().InstantiateLoot(transform.position);
+        }
+
+        // This code and below will allow the fish to escape if the bar goes back down to ~0.
+        // only issue is when starting the next cast after the fish is lost. the color and state of the fish text is wrong. FIX LATER
+        if (catchProgress >= .1f)
+        {
+            isCanEscape = true;
+            Debug.Log("Can now escape");
+        }
+
+        if (catchProgress <= 0.001 && isCanEscape == true)
+        {
+            fishText.color = new Color(0.7830189f, 0.1231161f, 0.1758734f); // Red
+            fishSlider.SetFillColor(FillColor.Bad);
+            fishText.text = "FISH ESCAPED!";
+
+            fishingLine.SetActive(false);
+            catchPrompt.SetActive(false);
+
+            StartCoroutine(sliderWait());
+
+            isTugofWar = false;
+            Debug.Log("Fish Escaped");
         }
     }
 
@@ -206,11 +240,24 @@ public class FishMechanic : MonoBehaviour
 
     IEnumerator sliderWait()
     {
-        yield return new WaitForSeconds(1.6f);
-        fishCatchingPrompt.SetActive(false);
-        catchProgress = 0.0f;
-        fishSlider.ResetSlider();
-        fishText.text = "Wind in the fish!";
-        isCanCast = true;
+        if (catchProgress <= 0.001 && isCanEscape == true)
+        {
+            yield return new WaitForSeconds(1.6f);
+            fishCatchingPrompt.SetActive(false);
+            catchProgress = 0.0f;
+            fishSlider.ResetSlider();
+            fishText.text = "Wind in the fish!";
+            isCanEscape = false;
+            isCanCast = true;
+        }
+        else
+        {
+            yield return new WaitForSeconds(1.6f);
+            fishCatchingPrompt.SetActive(false);
+            catchProgress = 0.0f;
+            fishSlider.ResetSlider();
+            fishText.text = "Wind in the fish!";
+            isCanCast = true;
+        }
     }
 }

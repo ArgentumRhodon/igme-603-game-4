@@ -2740,10 +2740,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - item: {fileID: 11400000, guid: 04723e4d8b7516748bab24d592b575f7, type: 2}
-    value: 2000
-  - item: {fileID: 11400000, guid: 4d3ea9291548d9f4f8b6e4ef8de48a75, type: 2}
-    value: 15000
+  - item: {fileID: 11400000, guid: 11bf091c4217c424f9ed82bd1ce51af8, type: 2}
+    value: 2500
+  - item: {fileID: 11400000, guid: 1cdaf4ac4c2ff9945bcf5e060abbd300, type: 2}
+    value: 5000
+  - item: {fileID: 11400000, guid: ad95a1c264d39024094bbce177694a2e, type: 2}
+    value: 7500
+  - item: {fileID: 11400000, guid: bb7ed0e7740466c449ae03dcc2109ca1, type: 2}
+    value: 10000
   UIPrefab: {fileID: 3899911677351103845, guid: 39adb81cf059d8c458939d00b5689cc2, type: 3}
 --- !u!1 &1199595835
 GameObject:

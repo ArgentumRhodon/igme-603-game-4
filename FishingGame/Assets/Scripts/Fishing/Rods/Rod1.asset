@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da092be8e1ff254abf953ceedc33820, type: 3}
-  m_Name: Sugar
+  m_Script: {fileID: 11500000, guid: abf8bd30eb5f0ea46986c04304e6ab5f, type: 3}
+  m_Name: Rod1
   m_EditorClassIdentifier: 
-  fishId: 4
-  fishLootSprite: {fileID: 21300000, guid: 6aef0064cdf905a4fad1219e892b5c26, type: 3}
-  fishName: Sugar
-  dropChance: -5
-  sellPrice: 1000
+  image: {fileID: 21300000, guid: 8ebe9fe86a1fbce45992d979239cb08e, type: 3}
+  title: Rod 1
+  castingLength: 1
+  percentFishLuck: 10
+  percentFrenzyBoost: 5

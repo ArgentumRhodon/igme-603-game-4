@@ -11,8 +11,6 @@ public class FishLootBag : MonoBehaviour
 
     [SerializeField] FishingStats fishingStats;
 
-    [SerializeField] private float dropForce = 300f;
-
     //Fish Inventory --Rin
     Inventory playerInventory;
 
