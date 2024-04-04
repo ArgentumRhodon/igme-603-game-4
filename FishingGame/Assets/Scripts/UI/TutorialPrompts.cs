@@ -18,7 +18,7 @@ public class TutorialPrompts : MonoBehaviour
     void Update()
     {
         // Prompt on how to cast the line
-        if (castLinePrompt.activeSelf && Input.GetKeyDown(KeyCode.W))
+        if (!GameUI.Instance.IsScreenActive("Start Screen") && !GameManager.Instance.isPaused && castLinePrompt.activeSelf && Input.GetKeyDown(KeyCode.W))
         {
             castLinePrompt.SetActive(false);
             reelFishPrompt.SetActive(true);
