@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Bait
   m_EditorClassIdentifier: 
   duration: 1
-  boostSize: 25
+  boostSize: 15
   type: 1

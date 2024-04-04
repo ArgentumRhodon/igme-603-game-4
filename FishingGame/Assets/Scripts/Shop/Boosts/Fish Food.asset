@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Fish Food
   m_EditorClassIdentifier: 
   duration: 3
-  boostSize: 25
+  boostSize: 20
   type: 0

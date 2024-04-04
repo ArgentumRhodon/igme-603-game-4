@@ -338,6 +338,8 @@ MonoBehaviour:
   items:
   - item: {fileID: 11400000, guid: 9dc184f7cbaec6b4e81cc1cf82051046, type: 2}
     value: 500
+  - item: {fileID: 11400000, guid: 6dd6897eabbdf614d8e7ac061bdac9a2, type: 2}
+    value: 1000
   - item: {fileID: 11400000, guid: 3d99c0af98394fc46822f0fad5170bbe, type: 2}
     value: 1000
   - item: {fileID: 11400000, guid: 6e696ef5bf0818d4bb35ebbf03c380b0, type: 2}
