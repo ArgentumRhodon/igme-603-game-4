@@ -6,10 +6,10 @@ using UnityEngine;
 public class BoostTimer : MonoBehaviour
 {
     public static BoostTimer Instance { get; private set; }
+    public static Boost currentBoost = null;
 
     public GameObject boostUI;
-    private int timeLeft = 0;
-    private IEnumerator timerCoroutine;
+    private float timeLeft = 0;
 
     private void Awake()
     {
@@ -25,17 +25,27 @@ public class BoostTimer : MonoBehaviour
 
     public void StartTimer(Boost boost)
     {
-        boostUI.SetActive(true);
-        timeLeft = boost.duration * 60;
+        if(currentBoost != null)
+        {
+            CancelBoost();
+        }
 
-        timerCoroutine = DoCountdownUI();
-        StartCoroutine(timerCoroutine);
+        currentBoost = boost;
+
+        boostUI.SetActive(true);
+        timeLeft = currentBoost.duration * 60;
+
+        BuffPlayer();
+    }
+
+    public void AddTime(float time)
+    {
+        timeLeft += time * 60;
     }
 
     public void StopTimer()
     {
         boostUI.SetActive(false);
-        StopCoroutine(timerCoroutine);
     }
 
     // https://forums.codeguru.com/showthread.php?356471-Display-Seconds-
@@ -69,22 +79,56 @@ public class BoostTimer : MonoBehaviour
 
     private void UpdateBoostUI()
     {
-        timeLeft -= 1;
-        boostUI.GetComponentInChildren<TextMeshProUGUI>().text = FromSeconds(timeLeft);
+        int seconds = Mathf.RoundToInt(timeLeft);
+        boostUI.GetComponentInChildren<TextMeshProUGUI>().text = FromSeconds(seconds);
     }
 
-    IEnumerator DoCountdownUI()
+    public void BuffPlayer()
     {
-        for (; ; )
+        FishingStats stats = FindFirstObjectByType<FishingStats>();
+
+        switch (currentBoost.type)
         {
-            UpdateBoostUI();
-            yield return new WaitForSeconds(1);
+            case BoostType.Frenzy:
+                stats.frenzyBoost = currentBoost.boostSize;
+                break;
+            case BoostType.Fishing:
+                stats.fishingBoost = currentBoost.boostSize;
+                break;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CancelBoost()
     {
-        
+        StopTimer();
+
+        FishingStats stats = FindFirstObjectByType<FishingStats>();
+        switch (currentBoost.type)
+        {
+            case BoostType.Frenzy:
+                stats.frenzyBoost = 0;
+                break;
+            case BoostType.Fishing:
+                stats.fishingBoost = 0;
+                break;
+        }
+        currentBoost = null;
+    }
+
+    private void Update()
+    {
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+        }
+        else if(currentBoost != null)
+        {
+            CancelBoost();
+        }
+
+        if (boostUI.activeSelf)
+        {
+            UpdateBoostUI();
+        }
     }
 }

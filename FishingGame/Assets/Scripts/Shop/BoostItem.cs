@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class BoostItem : MonoBehaviour
 {
-    public static Boost currentBoost = null;
-
     [SerializeField]
     private TextMeshProUGUI nameText;
     [SerializeField]
@@ -34,51 +32,24 @@ public class BoostItem : MonoBehaviour
 
     public void Purchase()
     {
-        if(PlayerCurrency.playerGems < cost || currentBoost != null)
+        if(PlayerCurrency.playerGems < cost)
         {
             return;
         }
 
-        currentBoost = boost;
         PlayerCurrency.UpdateGem(-cost);
-        BuffPlayer();
-    }
 
-
-    public void BuffPlayer()
-    {
-        BoostTimer.Instance.StartTimer(boost);
-
-        FishingStats stats = FindFirstObjectByType<FishingStats>();
-        switch (boost.type)
+        if(BoostTimer.currentBoost == boost)
         {
-            case BoostType.Frenzy:
-                stats.frenzyBoost = boost.boostSize;
-                Invoke(nameof(ResetBoost), boost.duration * 60);
-                break;
-            case BoostType.Fishing:
-                stats.fishingBoost = boost.boostSize;
-                Invoke(nameof(ResetBoost), boost.duration * 60);
-                break;
+            Debug.Log("Same boost");
+            BoostTimer.Instance.AddTime(boost.duration);
         }
-    }
-
-    public void ResetBoost()
-    {
-        BoostTimer.Instance.StopTimer();
-
-        currentBoost = null;
-        FishingStats stats = FindFirstObjectByType<FishingStats>();
-        switch (boost.type)
+        else
         {
-            case BoostType.Frenzy:
-                stats.frenzyBoost = 0;
-                break;
-            case BoostType.Fishing:
-                stats.fishingBoost = 0;
-                break;
+            BoostTimer.Instance.StartTimer(boost);
         }
     }
 
 
+    
 }
