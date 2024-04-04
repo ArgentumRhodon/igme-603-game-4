@@ -5982,8 +5982,8 @@ MonoBehaviour:
   fillImage: {fileID: 6656929627824854242}
   handleImage: {fileID: 4408369991755452968}
   normalFillColor: {r: 0.1372549, g: 0.56351304, b: 1, a: 1}
-  badFillColor: {r: 0.7830189, g: 0.12311613, b: 0.17587337, a: 1}
-  successFillColor: {r: 0.31169474, g: 0.9339623, b: 0.04111775, a: 1}
+  badFillColor: {r: 0.30980393, g: 0.9333334, b: 0.039215688, a: 1}
+  successFillColor: {r: 0.9716981, g: 0.72663057, b: 0, a: 1}
 --- !u!1 &6868997038751197088
 GameObject:
   m_ObjectHideFlags: 0
