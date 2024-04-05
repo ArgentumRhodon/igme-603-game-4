@@ -20,7 +20,7 @@ public static class PlayerCurrency
     {
         playerCash += amount;
         GameObject.Find("CashText").GetComponent<TextMeshProUGUI>().text = playerCash.ToString();
-        Debug.Log(playerCash);
+        //Debug.Log(playerCash);
     }
 
     public static void UpdateGem(int amount)

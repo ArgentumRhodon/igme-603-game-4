@@ -22,12 +22,18 @@ public class Inventory : MonoBehaviour
 
     public void Start()
     {
+
+    }
+
+    public void InitialCheckoutText()
+    {
+        checkoutText = GameObject.Find("CheckoutInfo").GetComponent<TextMeshProUGUI>();
         checkoutText.text = "CHECK OUT \n _____ \n";
     }
 
     public void UpdateCheckoutInfo()
     {
-        checkoutText = GameObject.Find("CheckoutInfo").GetComponent<TextMeshProUGUI>();
+        //checkoutText = GameObject.Find("CheckoutInfo").GetComponent<TextMeshProUGUI>();
 
         if(checkoutText != null)
         {

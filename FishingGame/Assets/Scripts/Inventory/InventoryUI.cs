@@ -13,6 +13,7 @@ public class InventoryUI : MonoBehaviour
     }
     private void OnEnable()
     {
+        inventory.InitialCheckoutText();
         inventory.UpdateCheckoutInfo();
     }
 }
