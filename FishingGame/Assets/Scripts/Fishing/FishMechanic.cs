@@ -146,7 +146,7 @@ public class FishMechanic : MonoBehaviour
             fishSlider.SetFillColor(FillColor.Bad);
             fishText.text = "FISH ESCAPED!";
 
-            SoundManager.Instance.PlayRandomSound(new int[] {3, 4});
+            SoundManager.Instance.PlaySound(3); // Escape sound
 
             fishingLine.SetActive(false);
             catchPrompt.SetActive(false);
@@ -188,7 +188,7 @@ public class FishMechanic : MonoBehaviour
         {
             isCanCast = false;
             fishingLine.SetActive(true);
-            SoundManager.Instance.PlaySound(0);
+            SoundManager.Instance.PlaySound(0); // Play cast sound
             StartCoroutine(fishBite(Random.Range(2f, 9f)));
         }
     }
@@ -226,7 +226,7 @@ public class FishMechanic : MonoBehaviour
     {
         yield return new WaitForSeconds(randNum);
         catchPrompt.SetActive(true);
-        SoundManager.Instance.PlaySound(6);
+        SoundManager.Instance.PlaySound(4); // Play alert sound
     }
 
     IEnumerator fishEscape()
