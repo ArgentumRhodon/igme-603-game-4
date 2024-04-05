@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5084935853452162378}
   - component: {fileID: 1773030897991483788}
+  - component: {fileID: 7485645845900875165}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1773030897991483788
 MonoBehaviour:
@@ -44,3 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e61e5fb2f19e1ca4fabf95f023b71632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
+--- !u!114 &7485645845900875165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5238564731974586356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8dfa9a00bcb4e4aa545bdcdec3f524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intialSFXVolume: 0.8
+  initialMusicVolume: 0.1
+  soundClips: []
+  musicClips: []
