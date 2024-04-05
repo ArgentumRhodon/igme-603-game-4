@@ -51,7 +51,10 @@ public class SoundManager : MonoBehaviour
         musicSource.volume = initialMusicVolume;
 
         // Start with music
-        // PlayMusic(0);
+        if (musicClips.Length > 0)
+        {
+            PlayMusic(0);
+        }
     }
 
     public AudioClip[] soundClips;
@@ -71,12 +74,6 @@ public class SoundManager : MonoBehaviour
         {
             Debug.LogWarning("Invalid sound index: " + soundIndex);
         }
-    }
-
-    public void PlayRandomSound()
-    {
-        int randomIndex = Random.Range(0, soundClips.Length);
-        PlaySound(randomIndex);
     }
 
     public void PlayMusic(int musicIndex)
