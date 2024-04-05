@@ -54,7 +54,8 @@ public class SoundManager : MonoBehaviour
         musicSource.volume = initialMusicVolume;
 
         // Start with music
-        // PlayMusic(wanted index);
+        PlayMusic(1);
+        musicSource.loop = true; // Loop the music
     }
 
     public AudioClip[] soundClips;
@@ -146,6 +147,10 @@ public class SoundManager : MonoBehaviour
     public void StopMusic()
     {
         musicSource.Stop();
+
+        // Restart main music
+        musicSource.clip = musicClips[1];
+        musicSource.Play();
     }
 
     public void SetSFXVolume(float volume)
