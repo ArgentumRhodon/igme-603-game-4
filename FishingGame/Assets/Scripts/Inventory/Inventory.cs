@@ -96,6 +96,7 @@ public class Inventory : MonoBehaviour
         PlayerCurrency.UpdateCash(fishAmountList[fishId - 1] * fishPriceList[fishId - 1]);
         
         fishAmountList[fishId - 1] = 0;
+        UpdateCheckoutInfo();
     }
 
     public void SellAllFish()
