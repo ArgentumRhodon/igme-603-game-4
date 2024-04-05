@@ -6,7 +6,10 @@ public class SoundManager : MonoBehaviour
 {
     private static SoundManager instance;
     [SerializeField] float intialSFXVolume = 0.8f;
-    [SerializeField] float initialMusicVolume = 0.1f;
+    [SerializeField] float initialMusicVolume = 0.8f;
+
+    private bool isSoundLooping = false;
+    private int loopingSoundIndex;
 
     public static SoundManager Instance
     {
@@ -51,10 +54,7 @@ public class SoundManager : MonoBehaviour
         musicSource.volume = initialMusicVolume;
 
         // Start with music
-        if (musicClips.Length > 0)
-        {
-            PlayMusic(0);
-        }
+        // PlayMusic(wanted index);
     }
 
     public AudioClip[] soundClips;
@@ -65,6 +65,8 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(int soundIndex)
     {
+        if (soundSource.isPlaying) return;
+
         // Play sound if in range
         if (soundIndex >= 0 && soundIndex < soundClips.Length)
         {
@@ -73,6 +75,56 @@ public class SoundManager : MonoBehaviour
         else
         {
             Debug.LogWarning("Invalid sound index: " + soundIndex);
+        }
+    }
+
+    public void PlayRandomSound(int[] soundIndexes)
+    {
+        if (soundSource.isPlaying) return;
+
+        // Play sound if in range
+        if (soundIndexes.Length > 0)
+        {
+            int randomSoundIndex = Random.Range(0, soundIndexes.Length);
+            PlaySound(soundIndexes[randomSoundIndex]);
+        }
+        else
+        {
+            Debug.LogWarning("No valid sound indexes");
+        }
+    }
+
+    // Method to start looping a sound based on a condition
+    public void StartLoopingSound(int soundIndex)
+    {
+        if (isSoundLooping) return; // Avoid pileing up sounds
+
+        if (soundIndex >= 0 && soundIndex < soundClips.Length)
+        {
+            isSoundLooping = true;
+            loopingSoundIndex = soundIndex;
+            InvokeRepeating(nameof(LoopSound), 0f, soundClips[loopingSoundIndex].length); // Start looping sound
+        }
+        else
+        {
+            Debug.LogWarning("Invalid sound index: " + soundIndex);
+        }
+    }
+
+    // Method to stop looping the sound
+    public void StopLoopingSound()
+    {
+        if (isSoundLooping) soundSource.Stop(); // Stop sound immediately
+        isSoundLooping = false;
+        CancelInvoke(nameof(LoopSound)); // Stop looping sound
+    }
+
+    // Method to play the looping sound
+    private void LoopSound()
+    {
+        if (isSoundLooping)
+        {
+            soundSource.PlayOneShot(soundClips[loopingSoundIndex]);
         }
     }
 
