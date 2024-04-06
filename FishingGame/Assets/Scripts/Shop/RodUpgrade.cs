@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 public class RodUpgrade : MonoBehaviour
@@ -18,7 +19,9 @@ public class RodUpgrade : MonoBehaviour
     private TextMeshProUGUI priceText;
 
     private int cost;
-    private Rod rod;
+    public Rod rod;
+    public GameObject buyUI;
+    public GameObject purchasedUI;
 
     public static List<Rod> purchasedRods;
 
@@ -27,7 +30,7 @@ public class RodUpgrade : MonoBehaviour
         purchasedRods = new List<Rod>();
     }
 
-    public void Populate(Rod rod, int cost)
+    public void Populate(Rod rod, int cost, GameObject buyUI = null, GameObject purchasedUI = null)
     {
         image.sprite = rod.image;
         nameText.text = rod.title;
@@ -37,6 +40,8 @@ public class RodUpgrade : MonoBehaviour
 
         this.cost = cost;
         this.rod = rod;
+        this.buyUI = buyUI;
+        this.purchasedUI = purchasedUI;
     }
 
     public void Purchase()
@@ -47,6 +52,10 @@ public class RodUpgrade : MonoBehaviour
         }
 
         purchasedRods.Add(rod);
+
+        GameObject storeObject = Instantiate(purchasedUI, buyUI.gameObject.transform.parent);
+        storeObject.GetComponent<RodUpgrade>().Populate(rod, cost);
+        Destroy(buyUI);
 
         PlayerCurrency.UpdateCash(-cost);
         GameObject.Find("Rod").GetComponent<SpriteRenderer>().sprite = rod.image;
