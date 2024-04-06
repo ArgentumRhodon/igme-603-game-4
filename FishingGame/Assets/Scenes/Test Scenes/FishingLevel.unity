@@ -2751,6 +2751,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: bb7ed0e7740466c449ae03dcc2109ca1, type: 2}
     value: 10000
   UIPrefab: {fileID: 3899911677351103845, guid: 39adb81cf059d8c458939d00b5689cc2, type: 3}
+  PurchasedPrefab: {fileID: 3899911677351103845, guid: d9606bfc0a043034da29f0f8ebb1da52, type: 3}
 --- !u!1 &1199595835
 GameObject:
   m_ObjectHideFlags: 0
