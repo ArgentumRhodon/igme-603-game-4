@@ -88,22 +88,27 @@ public class FishMechanic : MonoBehaviour
         if (!isFishTugging)
         {
             fishText.color = new Color(0.2725308f, 0.9339623f, 0.2702029f); // Green
+            fishSlider.SetFillColor(FillColor.Normal);
+
             if (Input.GetKeyDown(KeyCode.Space) && catchProgress < 1)
             {
+                SoundManager.Instance.StartLoopingSound(1);
                 catchProgress += 0.05f;
                 fishSlider.UpdateSliderValue(catchProgress);
-                fishSlider.SetFillColor(FillColor.Normal);
             }
         }
         // Player should wait
         else
         {
+            SoundManager.Instance.StopLoopingSound();
+
             fishText.color = new Color(0.9333333f, 0.03921568f, 0.1011488f); // Red
+            fishSlider.SetFillColor(FillColor.Bad);
+
             if (Input.GetKeyDown(KeyCode.Space) && catchProgress > 0)
             {
                 catchProgress -= 0.025f;
                 fishSlider.UpdateSliderValue(catchProgress);
-                fishSlider.SetFillColor(FillColor.Bad);
             }
         }
 
@@ -114,6 +119,9 @@ public class FishMechanic : MonoBehaviour
             fishSlider.SetFillColor(FillColor.Success);
             fishText.text = "FISH CAUGHT!";
 
+            SoundManager.Instance.StopLoopingSound(); // Stop reeling/thrashing sound
+            SoundManager.Instance.PlaySound(2); // Success sound
+        
             fishingLine.SetActive(false);
             catchPrompt.SetActive(false);
 
@@ -137,6 +145,8 @@ public class FishMechanic : MonoBehaviour
             fishText.color = new Color(0.7830189f, 0.1231161f, 0.1758734f); // Red
             fishSlider.SetFillColor(FillColor.Bad);
             fishText.text = "FISH ESCAPED!";
+
+            SoundManager.Instance.PlaySound(3); // Escape sound
 
             fishingLine.SetActive(false);
             catchPrompt.SetActive(false);
@@ -178,6 +188,7 @@ public class FishMechanic : MonoBehaviour
         {
             isCanCast = false;
             fishingLine.SetActive(true);
+            SoundManager.Instance.PlaySound(0); // Play cast sound
             StartCoroutine(fishBite(Random.Range(2f, 9f)));
         }
     }
@@ -215,6 +226,7 @@ public class FishMechanic : MonoBehaviour
     {
         yield return new WaitForSeconds(randNum);
         catchPrompt.SetActive(true);
+        SoundManager.Instance.PlaySound(4); // Play alert sound
     }
 
     IEnumerator fishEscape()
@@ -230,7 +242,11 @@ public class FishMechanic : MonoBehaviour
 
     IEnumerator frenzyStart(float timeLength)
     {
+        SoundManager.Instance.PlayMusic(0);
+
         yield return new WaitForSeconds(timeLength);
+
+        SoundManager.Instance.StopMusic();
 
         fishingLine.SetActive(false);
         frenzyPrompt.SetActive(false);
